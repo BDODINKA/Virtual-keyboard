@@ -94,7 +94,6 @@ const Keyboard = {
                 case "Caps":
                     keyElement.classList.add("keyboard__key--wide");
                     keyElement.innerHTML = createIconHTML("Caps");
-
                     keyElement.addEventListener("click", () => {
                         this._toggleCapsLock();
                         keyElement.classList.toggle("keyboard__key--active", this.properties.capsLock);
@@ -257,77 +256,72 @@ window.addEventListener("DOMContentLoaded", function () {
     Keyboard.init();
 
 
-
     const keys = document.querySelectorAll('.keyboard__key')
     const spaceKey = document.querySelector('.keyboard__key--extra-wide')
     const shiftKey = document.querySelectorAll('.keyboard__key--wide')
     const altKey = document.querySelectorAll(".keyboard__key--alt")
     const caps = document.querySelectorAll(".keyboard__key--wide")
     const tab = document.querySelectorAll(".keyboard__key--wide")
-    const langChange = document.querySelectorAll(".keyboard__key")
 
 
-    for (let i = 0; i < keys.length; i++){
-        keys[i].setAttribute('keyName',keys[i].innerText)
-        keys[i].setAttribute('keyLowerCase',keys[i].innerText.toLowerCase())
+    for (let i = 0; i < keys.length; i++) {
+        keys[i].setAttribute('keyName', keys[i].innerText)
+        keys[i].setAttribute('keyLowerCase', keys[i].innerText.toLowerCase())
     }
-    window.addEventListener('keydown',function (e){
-        for (let i = 0; i < keys.length; i++){
-            if (e.key === keys[i].getAttribute('keyName')|| e.key === keys[i].getAttribute('keyLowerCase')){
+    window.addEventListener('keydown', function (e) {
+        for (let i = 0; i < keys.length; i++) {
+            if (e.key === keys[i].getAttribute('keyName') || e.key === keys[i].getAttribute('keyLowerCase')) {
                 keys[i].classList.add('active')
             }
-            if(e.code === 'Space'){
+            if (e.code === 'Space') {
                 spaceKey.classList.add('active')
             }
-            if(e.code === 'Shift'){
+            if (e.code === 'Shift') {
                 shiftKey.classList.add('active')
-
             }
-            if(e.code === 'AltLeft'){
+            if (e.code === 'AltLeft') {
                 altKey[0].classList.add('active')
                 altKey[1].classList.add('active')
             }
-            if(e.code === 'CapsLock'){
-                caps[1].classList.toggle("keyboard__key--active",);
+            if (e.code === 'CapsLock') {
+                caps[1].classList.add("keyboard__key--active",);
             }
-            if(e.code === 'Tab'){
+            if (e.code === 'Tab') {
                 tab[0].classList.add('active');
             }
 
         }
     })
-    window.addEventListener('keyup',function (e){
-        for (let i = 0; i < keys.length; i++){
-            if (e.key === keys[i].getAttribute('keyName')|| e.key === keys[i].getAttribute('keyLowerCase')){
+    window.addEventListener('keyup', function (e) {
+        for (let i = 0; i < keys.length; i++) {
+            if (e.key === keys[i].getAttribute('keyName') || e.key === keys[i].getAttribute('keyLowerCase')) {
                 keys[i].classList.remove('active')
                 keys[i].classList.add('remove')
             }
-            if(e.code === 'Space'){
+            if (e.code === 'Space') {
                 spaceKey.classList.remove('active')
                 spaceKey.classList.add('remove')
             }
 
-            if(e.code === 'AltLeft'){
-            altKey[0].classList.remove('active');
-            altKey[1].classList.remove('active')
+            if (e.code === 'AltLeft') {
+                altKey[0].classList.remove('active');
+                altKey[1].classList.remove('active')
             }
-            if(e.code === 'CapsLock'){
+            if (e.code === 'CapsLock') {
                 caps[1].classList.remove("keyboard__key--active",);
             }
-            if(e.code === 'Tab'){
+            if (e.code === 'Tab') {
                 tab[0].classList.remove('active');
             }
 
         }
 
     })
-    window.addEventListener('keypress',function (e){
-        if (e.code === 'Ctrl' && e.code === 'Space'){
-            langChange[54].classList.add('change')
-        }
-    })
+}
 
-});
+
+
+);
 
 
 
