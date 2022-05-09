@@ -72,6 +72,9 @@
 .keyboard__key--active::after {
     background: #08ff00;
 }
+.keyboard__key--left{
+    margin-left: 1%;
+}
 
 
 
